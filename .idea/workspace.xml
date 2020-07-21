@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d44c40f2-5440-4ff1-8bd2-88ebc8f1cee9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/drv/chromedriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/drv/geckodriver.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/selemium_course.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/InsuranceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/InsuranceTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="d44c40f2-5440-4ff1-8bd2-88ebc8f1cee9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
