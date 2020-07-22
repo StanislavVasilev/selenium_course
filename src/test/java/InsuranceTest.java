@@ -1,32 +1,12 @@
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 
-import java.util.concurrent.TimeUnit;
-
-public class InsuranceTest {
-  private final WebDriver driver = getDriver();
-
-  private WebDriver getDriver() {
-    System.setProperty("webdriver.chrome.driver", "drv/chromedriver.exe");
-    return new ChromeDriver();
-  }
-  
-  @Before
-  public void init() {
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driver.manage().window().maximize();
-    driver.get("https://www.sberbank.ru/ru/person");
-  }
+public class InsuranceTest extends TestBase {
 
   @Test
   public void testInsurance() {
+    driver.get(baseUrl);
     moveToElement("//span[text()='Страхование']/parent::button");
     moveToElementAndClick("//span[text()='Страхование']/ancestor::li//a[text()='Страхование путешественников']");
     String text = driver.findElement(By.xpath("//b[text()='Оформить онлайн']/ancestor::div[@class='kit-col kit-col_xs_12 kit-col_lg-top_40']/parent::div[@class='kit-row']//h1")).getText();
@@ -49,29 +29,4 @@ public class InsuranceTest {
     Assert.assertEquals("При заполнении данных произошла ошибка", errorText);
   }
 
-  @After
-  public void close() {
-    driver.quit();
-  }
-
-  private void fillField(String locator, String value) {
-    driver.findElement(By.xpath(locator)).click();
-    driver.findElement(By.xpath(locator)).sendKeys(value);
-  }
-
-  private void clickOnElement(String locator) {
-    driver.findElement(By.xpath(locator)).click();
-  }
-
-  private void moveToElement(String locator) {
-    WebElement element = driver.findElement(By.xpath(locator));
-    Actions actions = new Actions(driver);
-    actions.moveToElement(element).build().perform();
-  }
-
-  private void moveToElementAndClick(String locator) {
-    WebElement element = driver.findElement(By.xpath(locator));
-    Actions actions = new Actions(driver);
-    actions.moveToElement(element).click().build().perform();
-  }
 }
