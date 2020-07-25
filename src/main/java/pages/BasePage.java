@@ -1,31 +1,52 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+/**
+ * Родительский класс.
+ * Реализует основные методы
+ */
+
 public class BasePage {
+
   WebDriver driver;
 
-  protected void fillField(String locator, String value) {
-    driver.findElement(By.xpath(locator)).click();
-    driver.findElement(By.xpath(locator)).sendKeys(value);
+  /**
+   * Заполнение поля
+   * @param element веб элемент, передаваемый в качестве параметра
+   * @param value значение, которое заносится в поле
+   */
+  protected void fillField(WebElement element, String value) {
+    element.click();
+    element.sendKeys(value);
   }
 
-  protected void clickOnElement(String locator) {
-    driver.findElement(By.xpath(locator)).click();
+  /**
+   * Клик на элемент
+   * @param element  передается Веб элемент
+   */
+  protected void clickOnElement(WebElement element) {
+    element.click();
   }
 
-  protected void moveToElement(String locator) {
-    WebElement element = driver.findElement(By.xpath(locator));
+  /**
+   * Наведение курсора на элемент меню
+   * @param element передается Веб элемент
+   */
+  protected void moveToElement(WebElement element) {
     Actions actions = new Actions(driver);
     actions.moveToElement(element).build().perform();
   }
 
-  protected void moveToElementAndClick(String locator) {
-    WebElement element = driver.findElement(By.xpath(locator));
+  /**
+   * Наведение курсора на элемент и клик по нему
+   * @param element Передается Веб элемент
+   */
+  protected void moveToElementAndClick(WebElement element) {
     Actions actions = new Actions(driver);
     actions.moveToElement(element).click().build().perform();
   }
+
 }

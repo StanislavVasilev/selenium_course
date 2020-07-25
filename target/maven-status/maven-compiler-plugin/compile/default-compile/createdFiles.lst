@@ -1,1 +1,5 @@
+pages\InsuranceFormPage.class
+pages\BasePage.class
 TestProperties.class
+pages\InsuranceForTravelersPage.class
+pages\MainPage.class

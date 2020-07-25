@@ -1,32 +1,53 @@
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
+import pages.InsuranceForTravelersPage;
+import pages.InsuranceFormPage;
+import pages.MainPage;
 
 public class InsuranceTest extends TestBase {
 
   @Test
   public void testInsurance() {
+    /**
+     * Используя наследованный драйвер выполняется переход на страницу из переменной, взятой из параметра.
+     */
     driver.get(baseUrl);
-    moveToElement("//span[text()='Страхование']/parent::button");
-    moveToElementAndClick("//span[text()='Страхование']/ancestor::li//a[text()='Страхование путешественников']");
-    String text = driver.findElement(By.xpath("//b[text()='Оформить онлайн']/ancestor::div[@class='kit-col kit-col_xs_12 kit-col_lg-top_40']/parent::div[@class='kit-row']//h1")).getText();
-    Assert.assertEquals("Страхование путешественников", text);
-    clickOnElement("//b[@class='kit-button__text'][text()='Оформить онлайн']");
-    clickOnElement("//button[text()='Оформить']");
-    fillField("//input[@id='surname_vzr_ins_0']", "Васильев");
-    fillField("//input[@id='name_vzr_ins_0']", "Станислав");
-    fillField("//input[@id='birthDate_vzr_ins_0']", "18121985");
-    fillField("//input[@id='person_lastName']", "Васильев");
-    fillField("//input[@id='person_firstName']", "Станислав");
-    fillField("//input[@id='person_middleName']", "Вадимович");
-    fillField("//input[@id='person_birthDate']", "18121985");
-    fillField("//input[@id='passportSeries']", "1234");
-    fillField("//input[@id='passportNumber']", "567890");
-    fillField("//input[@id='documentDate']", "22112006");
-    fillField("//input[@id='documentIssue']", "УВД МВД ГКЧП EКЛМН");
-    clickOnElement("//button[contains(text(), 'Продолжить')]");
-    String errorText = driver.findElement(By.xpath("//div[@class='alert-form alert-form-error']")).getText();
+    /**
+     * Инициализируется главная страница, после чего выполняется действие по переходу через меню
+     */
+    MainPage mainPage = new MainPage(driver);
+    mainPage.openMenu().openSubMenu();
+    /**
+     * Инициализируется страница Страхование путешественников, проверяется заголовок страницы,
+     * после чего выполняется переход на страницу оформления страхового полиса
+     */
+    InsuranceForTravelersPage insuranceForTravelersPage = new InsuranceForTravelersPage(driver);
+    String insuranceForTravelersTitle = insuranceForTravelersPage.insuranceForTravelersTitle.getText();
+    Assert.assertEquals("Страхование путешественников", insuranceForTravelersTitle);
+    insuranceForTravelersPage.clickRegisterInsuranceButton();
+    /**
+     * Инициализируется страница формы
+     * Выполняется заполнение полей формы с использованием "fluent-интерфейса" - шаблона построения выполнения методов одного за другим.
+     * После заполнения форм выполняется попытка продолжить и проверка сообщения об ошибке.
+     */
+    InsuranceFormPage insuranceFormPage = new InsuranceFormPage(driver);
+    insuranceFormPage.clickButton(insuranceFormPage.makeInsuranceButton);
+    insuranceFormPage
+            .fillFields(insuranceFormPage.visitorSurname, "Васильев")
+            .fillFields(insuranceFormPage.visitorName, "Станислав")
+            .fillFields(insuranceFormPage.visitorBirthDate, "18121985")
+            .fillFields(insuranceFormPage.personLastName, "Васильев")
+            .fillFields(insuranceFormPage.personFirstName, "Станислав")
+            .fillFields(insuranceFormPage.personMiddleName, "Вадимович")
+            .fillFields(insuranceFormPage.personBirthDate, "18121985")
+            .fillFields(insuranceFormPage.passportSeries, "1234")
+            .fillFields(insuranceFormPage.passportNumber, "123456")
+            .fillFields(insuranceFormPage.passportDate, "22112006")
+            .fillFields(insuranceFormPage.issuedBy, "АБВГД ЕЖЗКЛМН")
+            .clickButton(insuranceFormPage.continueButton);
+    String errorText = insuranceFormPage.totalErrorBlock.getText();
     Assert.assertEquals("При заполнении данных произошла ошибка", errorText);
   }
+
 
 }
