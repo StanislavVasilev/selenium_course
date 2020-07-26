@@ -31,7 +31,6 @@ public class MainPage extends BasePage {
    */
   public MainPage(WebDriver driver) {
     PageFactory.initElements(driver, this);
-    (new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOf(insuranceMenu));
     this.driver = driver;
   }
 
