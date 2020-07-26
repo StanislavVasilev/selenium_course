@@ -2,18 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d44c40f2-5440-4ff1-8bd2-88ebc8f1cee9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/InsuranceForTravelersPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/InsuranceFormPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/my/company/steps/BaseSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/my/company/steps/InsuranceFormSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/my/company/steps/InsurancePageSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/my/company/steps/MainSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/my/company/util/AllureListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/BuyInsuranceForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TestProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/my/company/util/TestProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/my/company/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/InsuranceForTravelersPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/my/company/pages/InsuranceForTravelersPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/InsuranceFormPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/my/company/pages/InsuranceFormPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/my/company/pages/MainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/InsuranceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/InsuranceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TestProperties.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/BasePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/InsuranceForTravelersPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/InsuranceFormPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/MainPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/InsuranceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-InsuranceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/InsuranceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestBase.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="testRunner" value="GRADLE" />
@@ -43,10 +67,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="project.structure.side.proportion" value="0.3994911" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -115,8 +139,8 @@
     <list>
       <item itemvalue="JUnit.InsuranceTest (1)" />
       <item itemvalue="JUnit.InsuranceTest" />
-      <item itemvalue="Maven.selemium_course [clean...]" />
       <item itemvalue="JUnit.InsuranceTest.testInsurance" />
+      <item itemvalue="Maven.selemium_course [clean...]" />
     </list>
     <recent_temporary>
       <list>
@@ -148,10 +172,14 @@
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
     <state x="2012" y="-45" width="1256" height="716" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595095477568" />
-    <state x="2445" y="27" key="#com.intellij.ide.util.MemberChooser" timestamp="1595706413157">
+    <state x="2445" y="27" key="#com.intellij.ide.util.MemberChooser" timestamp="1595751690570">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state x="2445" y="27" key="#com.intellij.ide.util.MemberChooser/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595706413157" />
+    <state x="2445" y="27" key="#com.intellij.ide.util.MemberChooser/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595751690570" />
+    <state x="2319" y="236" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1595744806534">
+      <screen x="1920" y="-109" width="1440" height="872" />
+    </state>
+    <state x="2319" y="236" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595744806534" />
     <state x="2423" y="176" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1595423520235">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
@@ -160,68 +188,65 @@
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
     <state x="2420" y="32" key="FileChooserDialogImpl/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595359150586" />
-    <state width="1396" height="303" key="GridCell.Tab.0.bottom" timestamp="1595711447989">
+    <state width="1396" height="177" key="GridCell.Tab.0.bottom" timestamp="1595742989300">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state width="1396" height="303" key="GridCell.Tab.0.bottom/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595711447989" />
+    <state width="1396" height="177" key="GridCell.Tab.0.bottom/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595742989300" />
     <state width="1396" height="264" key="GridCell.Tab.0.bottom/1920.-137.1440.900/0.0.1920.1080@1920.-137.1440.900" timestamp="1595251521567" />
-    <state width="1396" height="303" key="GridCell.Tab.0.center" timestamp="1595711447989">
+    <state width="1396" height="177" key="GridCell.Tab.0.center" timestamp="1595742989300">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state width="1396" height="303" key="GridCell.Tab.0.center/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595711447989" />
+    <state width="1396" height="177" key="GridCell.Tab.0.center/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595742989300" />
     <state width="1396" height="264" key="GridCell.Tab.0.center/1920.-137.1440.900/0.0.1920.1080@1920.-137.1440.900" timestamp="1595251521567" />
-    <state width="1396" height="303" key="GridCell.Tab.0.left" timestamp="1595711447989">
+    <state width="1396" height="177" key="GridCell.Tab.0.left" timestamp="1595742989300">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state width="1396" height="303" key="GridCell.Tab.0.left/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595711447989" />
+    <state width="1396" height="177" key="GridCell.Tab.0.left/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595742989300" />
     <state width="1396" height="264" key="GridCell.Tab.0.left/1920.-137.1440.900/0.0.1920.1080@1920.-137.1440.900" timestamp="1595251521567" />
-    <state width="1396" height="303" key="GridCell.Tab.0.right" timestamp="1595711447989">
+    <state width="1396" height="177" key="GridCell.Tab.0.right" timestamp="1595742989300">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state width="1396" height="303" key="GridCell.Tab.0.right/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595711447989" />
+    <state width="1396" height="177" key="GridCell.Tab.0.right/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595742989300" />
     <state width="1396" height="264" key="GridCell.Tab.0.right/1920.-137.1440.900/0.0.1920.1080@1920.-137.1440.900" timestamp="1595251521567" />
-    <state width="1396" height="417" key="GridCell.Tab.1.bottom" timestamp="1595709657065">
+    <state width="1396" height="417" key="GridCell.Tab.1.bottom" timestamp="1595742989295">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state width="1396" height="417" key="GridCell.Tab.1.bottom/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595709657065" />
+    <state width="1396" height="417" key="GridCell.Tab.1.bottom/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595742989295" />
     <state width="1396" height="264" key="GridCell.Tab.1.bottom/1920.-137.1440.900/0.0.1920.1080@1920.-137.1440.900" timestamp="1595251521568" />
-    <state width="1396" height="417" key="GridCell.Tab.1.center" timestamp="1595709657064">
+    <state width="1396" height="417" key="GridCell.Tab.1.center" timestamp="1595742989294">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state width="1396" height="417" key="GridCell.Tab.1.center/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595709657064" />
+    <state width="1396" height="417" key="GridCell.Tab.1.center/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595742989294" />
     <state width="1396" height="264" key="GridCell.Tab.1.center/1920.-137.1440.900/0.0.1920.1080@1920.-137.1440.900" timestamp="1595251521567" />
-    <state width="1396" height="417" key="GridCell.Tab.1.left" timestamp="1595709657064">
+    <state width="1396" height="417" key="GridCell.Tab.1.left" timestamp="1595742989294">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state width="1396" height="417" key="GridCell.Tab.1.left/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595709657064" />
+    <state width="1396" height="417" key="GridCell.Tab.1.left/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595742989294" />
     <state width="1396" height="264" key="GridCell.Tab.1.left/1920.-137.1440.900/0.0.1920.1080@1920.-137.1440.900" timestamp="1595251521567" />
-    <state width="1396" height="417" key="GridCell.Tab.1.right" timestamp="1595709657064">
+    <state width="1396" height="417" key="GridCell.Tab.1.right" timestamp="1595742989295">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state width="1396" height="417" key="GridCell.Tab.1.right/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595709657064" />
+    <state width="1396" height="417" key="GridCell.Tab.1.right/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595742989295" />
     <state width="1396" height="264" key="GridCell.Tab.1.right/1920.-137.1440.900/0.0.1920.1080@1920.-137.1440.900" timestamp="1595251521568" />
-    <state x="2141" y="-91" key="SettingsEditor" timestamp="1595429200935">
+    <state x="2170" y="-34" key="Maven.ArtifactSearchDialog" timestamp="1595745876253">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state x="2141" y="-91" key="SettingsEditor/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595429200935" />
+    <state x="2170" y="-34" key="Maven.ArtifactSearchDialog/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595745876253" />
+    <state x="2141" y="-91" key="SettingsEditor" timestamp="1595752078562">
+      <screen x="1920" y="-109" width="1440" height="872" />
+    </state>
+    <state x="2141" y="-91" key="SettingsEditor/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595752078562" />
+    <state x="2411" y="140" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1595745243649">
+      <screen x="1920" y="-109" width="1440" height="872" />
+    </state>
+    <state x="2411" y="140" key="com.intellij.testIntegration.createTest.CreateTestDialog/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595745243649" />
     <state x="2296" y="131" key="run.anything.popup" timestamp="1595275148304">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
     <state x="2296" y="131" key="run.anything.popup/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595275148304" />
-    <state x="2303" y="53" width="672" height="678" key="search.everywhere.popup" timestamp="1595703216916">
+    <state x="2303" y="53" width="672" height="678" key="search.everywhere.popup" timestamp="1595755420034">
       <screen x="1920" y="-109" width="1440" height="872" />
     </state>
-    <state x="2303" y="53" width="672" height="678" key="search.everywhere.popup/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595703216916" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/TestBase.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="2303" y="53" width="672" height="678" key="search.everywhere.popup/1920.-109.1440.872/0.28.1920.1052@1920.-109.1440.872" timestamp="1595755420034" />
   </component>
 </project>

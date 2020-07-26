@@ -1,4 +1,4 @@
-package pages;
+package my.company.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -57,7 +57,7 @@ public class InsuranceFormPage extends BasePage {
   public WebElement passportDate;
 
   @FindBy(id = "documentIssue")
-  public WebElement issuedBy;
+  public WebElement passportIssuedBy;
   /**
    * Кнопка перехода к следующей вкладке, расположена в нижней части страницы во 2й вкладке.
    */
@@ -71,6 +71,7 @@ public class InsuranceFormPage extends BasePage {
 
   /**
    * Конструктор принимающий на вход параметр
+   *
    * @param driver пронаследованный драйвер от суперкласса
    */
   public InsuranceFormPage(WebDriver driver) {
@@ -89,11 +90,45 @@ public class InsuranceFormPage extends BasePage {
 
   /**
    * Метод заполнения полей.
-   * @param element принимает на вход Веб елемент  "наименование поля".
-   * @param value принимает на вход значение, которое в поле заносится
+   *
+   * @param value   принимает на вход значение, которое в поле заносится
    */
-  public InsuranceFormPage fillFields(WebElement element, String value) {
-    fillField(element, value);
+
+  public InsuranceFormPage fillFields(String target, String value) {
+    switch (target) {
+      case "Фамилия Застрахованного":
+        fillField(visitorSurname, value);
+        break;
+      case "Имя Застрахованного":
+        fillField(visitorName, value);
+      case "Дата рождения застрахованного":
+        fillField(visitorBirthDate, value);
+        break;
+      case "Фамилия Страхователя":
+        fillField(personLastName, value);
+        break;
+      case "Имя Страхователя":
+        fillField(personFirstName, value);
+        break;
+      case "Отчество Страхователя":
+        fillField(personMiddleName, value);
+        break;
+      case "Дата рождения Страхователя":
+        fillField(personBirthDate, value);
+        break;
+      case "Серия паспорта":
+        fillField(passportSeries, value);
+        break;
+      case "Номер паспорта":
+        fillField(passportNumber, value);
+        break;
+      case "Дата выдачи паспорта":
+        fillField(passportDate, value);
+        break;
+      case "Кем выдан":
+        fillField(passportIssuedBy, value);
+        break;
+    }
     return this;
   }
 

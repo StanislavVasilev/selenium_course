@@ -1,53 +1,47 @@
-import org.junit.Assert;
+import my.company.steps.BaseSteps;
+import my.company.steps.InsuranceFormSteps;
+import my.company.steps.InsurancePageSteps;
+import my.company.steps.MainSteps;
 import org.junit.Test;
-import pages.InsuranceForTravelersPage;
-import pages.InsuranceFormPage;
-import pages.MainPage;
 
-public class InsuranceTest extends TestBase {
+import java.util.HashMap;
+
+public class InsuranceTest extends BaseSteps {
 
   @Test
   public void testInsurance() {
-    /**
-     * Используя наследованный драйвер выполняется переход на страницу из переменной, взятой из параметра.
-     */
-    driver.get(baseUrl);
-    /**
-     * Инициализируется главная страница, после чего выполняется действие по переходу через меню
-     */
-    MainPage mainPage = new MainPage(driver);
-    mainPage.openMenu().openSubMenu();
-    /**
-     * Инициализируется страница Страхование путешественников, проверяется заголовок страницы,
-     * после чего выполняется переход на страницу оформления страхового полиса
-     */
-    InsuranceForTravelersPage insuranceForTravelersPage = new InsuranceForTravelersPage(driver);
-    String insuranceForTravelersTitle = insuranceForTravelersPage.insuranceForTravelersTitle.getText();
-    Assert.assertEquals("Страхование путешественников", insuranceForTravelersTitle);
-    insuranceForTravelersPage.clickRegisterInsuranceButton();
-    /**
-     * Инициализируется страница формы
-     * Выполняется заполнение полей формы с использованием "fluent-интерфейса" - шаблона построения выполнения методов одного за другим.
-     * После заполнения форм выполняется попытка продолжить и проверка сообщения об ошибке.
-     */
-    InsuranceFormPage insuranceFormPage = new InsuranceFormPage(driver);
-    insuranceFormPage.clickButton(insuranceFormPage.makeInsuranceButton);
-    insuranceFormPage
-            .fillFields(insuranceFormPage.visitorSurname, "Васильев")
-            .fillFields(insuranceFormPage.visitorName, "Станислав")
-            .fillFields(insuranceFormPage.visitorBirthDate, "18121985")
-            .fillFields(insuranceFormPage.personLastName, "Васильев")
-            .fillFields(insuranceFormPage.personFirstName, "Станислав")
-            .fillFields(insuranceFormPage.personMiddleName, "Вадимович")
-            .fillFields(insuranceFormPage.personBirthDate, "18121985")
-            .fillFields(insuranceFormPage.passportSeries, "1234")
-            .fillFields(insuranceFormPage.passportNumber, "123456")
-            .fillFields(insuranceFormPage.passportDate, "22112006")
-            .fillFields(insuranceFormPage.issuedBy, "АБВГД ЕЖЗКЛМН")
-            .clickButton(insuranceFormPage.continueButton);
-    String errorText = insuranceFormPage.totalErrorBlock.getText();
-    Assert.assertEquals("При заполнении данных произошла ошибка", errorText);
+    MainSteps mainSteps = new MainSteps();
+    mainSteps.stepSelectMenu("Страхование", "Страхование путешественников");
+    InsurancePageSteps insurancePageSteps = new InsurancePageSteps();
+    insurancePageSteps.clickMakeInsuranceButton();
+    InsuranceFormSteps insuranceFormSteps = new InsuranceFormSteps();
+    insuranceFormSteps.makeRegisterPerson();
+    HashMap<String, String> fieldData = new HashMap<String, String>();
+    fieldData.put("Имя Застрахованного", "Станислав");
+    fieldData.put("Фамилия Застрахованного", "Васильев");
+    fieldData.put("Дата рождения Застрахованного", "18121985");
+    fieldData.put("Фамилия Страхователя", "Васильев");
+    fieldData.put("Имя Страхователя", "Станислав");
+    fieldData.put("Отчество Страхователя", "Вадимович");
+    fieldData.put("Дата рождения Страхователя", "18121985");
+    fieldData.put("Серия паспорта", "1234");
+    fieldData.put("Номер паспорта", "567890");
+    fieldData.put("Дата выдачи", "22112006");
+    fieldData.put("Кем выдан", "УВД АБВГД");
+    insuranceFormSteps.fillAllFields(fieldData);
   }
-
+//insuranceFormPage
+//        .fillFields(insuranceFormPage.visitorSurname, "Васильев")
+//          .fillFields(insuranceFormPage.visitorName, "Станислав")
+//            .fillFields(insuranceFormPage.visitorBirthDate, "18121985")
+//            .fillFields(insuranceFormPage.personLastName, "Васильев")
+//            .fillFields(insuranceFormPage.personFirstName, "Станислав")
+//            .fillFields(insuranceFormPage.personMiddleName, "Вадимович")
+//            .fillFields(insuranceFormPage.personBirthDate, "18121985")
+//            .fillFields(insuranceFormPage.passportSeries, "1234")
+//            .fillFields(insuranceFormPage.passportNumber, "123456")
+//            .fillFields(insuranceFormPage.passportDate, "22112006")
+//            .fillFields(insuranceFormPage.passportIssuedBy, "АБВГД ЕЖЗКЛМН")
+//            .clickButton(insuranceFormPage.continueButton);
 
 }

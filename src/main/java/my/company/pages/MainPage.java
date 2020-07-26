@@ -1,4 +1,4 @@
-package pages;
+package my.company.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,8 +25,9 @@ public class MainPage extends BasePage {
 
   /**
    * Конструктор класса с передаваемым параметром
+   *
    * @param driver пронаследованный от суперкласса драйвер
-   * Реализовано явное ожидание заголовка страницы(может быть лишнее)
+   *               Реализовано явное ожидание заголовка страницы(может быть лишнее)
    */
   public MainPage(WebDriver driver) {
     PageFactory.initElements(driver, this);
@@ -37,16 +38,24 @@ public class MainPage extends BasePage {
   /**
    * Метод выплняет открытие выпадающего подменю по наведению на кнопку основного меню
    */
-  public MainPage openMenu() {
-    moveToElement(insuranceMenu);
+  public MainPage openMenu(String target) {
+    switch (target) {
+      case "Страхование":
+        moveToElement(insuranceMenu);
+        break;
+    }
     return this;
   }
 
   /**
    * Метод выполняет наведение и открытие элемента выпадающего подменю
    */
-  public MainPage openSubMenu() {
-    moveToElementAndClick(insSubMenuItemInsuranceForTravelers);
+  public MainPage openSubMenu(String target) {
+    switch (target) {
+      case "Страхование путешественников":
+        moveToElementAndClick(insSubMenuItemInsuranceForTravelers);
+        break;
+    }
     return this;
   }
 

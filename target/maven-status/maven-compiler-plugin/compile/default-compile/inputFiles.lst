@@ -1,5 +1,10 @@
-C:\Users\Stanislav\Projects\selenium_course\src\main\java\pages\InsuranceForTravelersPage.java
-C:\Users\Stanislav\Projects\selenium_course\src\main\java\pages\InsuranceFormPage.java
-C:\Users\Stanislav\Projects\selenium_course\src\main\java\pages\BasePage.java
-C:\Users\Stanislav\Projects\selenium_course\src\main\java\pages\MainPage.java
-C:\Users\Stanislav\Projects\selenium_course\src\main\java\TestProperties.java
+C:\Users\Stanislav\Projects\selenium_course\src\main\java\my\company\pages\BasePage.java
+C:\Users\Stanislav\Projects\selenium_course\src\main\java\my\company\pages\MainPage.java
+C:\Users\Stanislav\Projects\selenium_course\src\main\java\my\company\steps\InsuranceFormSteps.java
+C:\Users\Stanislav\Projects\selenium_course\src\main\java\my\company\util\AllureListener.java
+C:\Users\Stanislav\Projects\selenium_course\src\main\java\my\company\steps\InsurancePageSteps.java
+C:\Users\Stanislav\Projects\selenium_course\src\main\java\my\company\steps\BaseSteps.java
+C:\Users\Stanislav\Projects\selenium_course\src\main\java\my\company\pages\InsuranceForTravelersPage.java
+C:\Users\Stanislav\Projects\selenium_course\src\main\java\my\company\util\TestProperties.java
+C:\Users\Stanislav\Projects\selenium_course\src\main\java\my\company\pages\InsuranceFormPage.java
+C:\Users\Stanislav\Projects\selenium_course\src\main\java\my\company\steps\MainSteps.java

@@ -3,3 +3,4 @@ $ cat .gitignore
 *.md
 ignore/
 .ignore/
+.idea

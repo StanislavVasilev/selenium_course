@@ -1,17 +1,21 @@
+package my.company.steps;
+
+import my.company.util.TestProperties;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
+import ru.yandex.qatools.allure.annotations.Attachment;
 
-import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class TestBase {
+public class BaseSteps {
+
+
   protected static WebDriver driver;
   protected static String baseUrl;
   public static Properties properties = TestProperties.getInstance().getProperties();
@@ -37,38 +41,17 @@ public class TestBase {
   }
 
   @AfterClass
-  public static void tearDown() throws Exception {
+  public static void afterMethod() {
     driver.quit();
   }
 
-  protected void fillField(String locator, String value) {
-    driver.findElement(By.xpath(locator)).click();
-    driver.findElement(By.xpath(locator)).sendKeys(value);
+  @Attachment(type = "image/png", value = "Screenshot")
+  public static byte[] takeScreenshot() {
+    return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
   }
 
-  protected void clickOnElement(String locator) {
-    driver.findElement(By.xpath(locator)).click();
+  @Attachment(type = "text/plain", value = "{0}")
+  public static String saveTextLog(String attacheName, String message) {
+    return message;
   }
-
-  protected void moveToElement(String locator) {
-    WebElement element = driver.findElement(By.xpath(locator));
-    Actions actions = new Actions(driver);
-    actions.moveToElement(element).build().perform();
-  }
-
-  protected void moveToElementAndClick(String locator) {
-    WebElement element = driver.findElement(By.xpath(locator));
-    Actions actions = new Actions(driver);
-    actions.moveToElement(element).click().build().perform();
-  }
-
-  protected boolean isElementPresent(String locator) {
-    try {
-      driver.findElement(By.xpath(locator));
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
 }
