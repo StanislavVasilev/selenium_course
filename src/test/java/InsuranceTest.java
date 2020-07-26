@@ -30,18 +30,4 @@ public class InsuranceTest extends BaseSteps {
     fieldData.put("Кем выдан", "УВД АБВГД");
     insuranceFormSteps.fillAllFields(fieldData);
   }
-//insuranceFormPage
-//        .fillFields(insuranceFormPage.visitorSurname, "Васильев")
-//          .fillFields(insuranceFormPage.visitorName, "Станислав")
-//            .fillFields(insuranceFormPage.visitorBirthDate, "18121985")
-//            .fillFields(insuranceFormPage.personLastName, "Васильев")
-//            .fillFields(insuranceFormPage.personFirstName, "Станислав")
-//            .fillFields(insuranceFormPage.personMiddleName, "Вадимович")
-//            .fillFields(insuranceFormPage.personBirthDate, "18121985")
-//            .fillFields(insuranceFormPage.passportSeries, "1234")
-//            .fillFields(insuranceFormPage.passportNumber, "123456")
-//            .fillFields(insuranceFormPage.passportDate, "22112006")
-//            .fillFields(insuranceFormPage.passportIssuedBy, "АБВГД ЕЖЗКЛМН")
-//            .clickButton(insuranceFormPage.continueButton);
-
 }
