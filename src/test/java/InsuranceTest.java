@@ -2,6 +2,7 @@ import my.company.steps.BaseSteps;
 import my.company.steps.InsuranceFormSteps;
 import my.company.steps.InsurancePageSteps;
 import my.company.steps.MainSteps;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -16,7 +17,7 @@ public class InsuranceTest extends BaseSteps {
     insurancePageSteps.clickMakeInsuranceButton();
     InsuranceFormSteps insuranceFormSteps = new InsuranceFormSteps();
     insuranceFormSteps.makeRegisterPerson();
-    HashMap<String, String> fieldData = new HashMap<String, String>();
+    HashMap<String, String> fieldData = new HashMap<>();
     fieldData.put("Имя Застрахованного", "Станислав");
     fieldData.put("Фамилия Застрахованного", "Васильев");
     fieldData.put("Дата рождения Застрахованного", "18121985");
@@ -29,5 +30,7 @@ public class InsuranceTest extends BaseSteps {
     fieldData.put("Дата выдачи", "22112006");
     fieldData.put("Кем выдан", "УВД АБВГД");
     insuranceFormSteps.fillAllFields(fieldData);
+    insuranceFormSteps.clickContinueButton();
+    Assert.assertFalse(insuranceFormSteps.getErrorVisible());
   }
 }

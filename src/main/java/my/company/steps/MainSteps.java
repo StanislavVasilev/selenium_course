@@ -1,7 +1,8 @@
 package my.company.steps;
 
+import io.qameta.allure.Step;
 import my.company.pages.MainPage;
-import ru.yandex.qatools.allure.annotations.Step;
+
 
 public class MainSteps extends BaseSteps {
 

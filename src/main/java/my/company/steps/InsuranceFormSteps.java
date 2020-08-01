@@ -1,9 +1,10 @@
 package my.company.steps;
 
+import io.qameta.allure.Step;
 import my.company.pages.InsuranceFormPage;
-import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 public class InsuranceFormSteps extends BaseSteps {
   private final InsuranceFormPage insuranceFormPage = new InsuranceFormPage(driver);
@@ -21,12 +22,22 @@ public class InsuranceFormSteps extends BaseSteps {
   @Step("Заполнение полей формы:")
   public void fillAllFields(HashMap<String, String> map) {
     map.forEach(this::stepFillField);
+  }
 
-
+  @Step("Нажатие кнопки Продолжить")
+  public void clickContinueButton() {
+    insuranceFormPage.clickButton(insuranceFormPage.continueButton);
   }
 
   @Step("Получение сообщения в блоке ошибок")
-  public String getErrorText() {
-    return insuranceFormPage.totalErrorBlock.getText();
+  public Boolean getErrorVisible() {
+    boolean b = false;
+    try {
+      b = insuranceFormPage.getTotalErrorBlock().isDisplayed();
+      takeScreenshot();
+    } catch (NoSuchElementException e) {
+      e.printStackTrace();
+    }
+    return b;
   }
 }

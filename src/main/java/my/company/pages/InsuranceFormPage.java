@@ -1,5 +1,6 @@
 package my.company.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -63,11 +64,16 @@ public class InsuranceFormPage extends BasePage {
    */
   @FindBy(xpath = "//button[contains(text(), 'Продолжить')]")
   public WebElement continueButton;
+
   /**
    * Блок с итоговым сообщением об ошибке.
    */
   @FindBy(xpath = "//div[@class='alert-form alert-form-error']")
-  public WebElement totalErrorBlock;
+  private WebElement totalErrorBlock;
+
+  public WebElement getTotalErrorBlock() {
+
+  }
 
   /**
    * Конструктор принимающий на вход параметр
@@ -91,7 +97,7 @@ public class InsuranceFormPage extends BasePage {
   /**
    * Метод заполнения полей.
    *
-   * @param value   принимает на вход значение, которое в поле заносится
+   * @param value принимает на вход значение, которое в поле заносится
    */
 
   public InsuranceFormPage fillFields(String target, String value) {

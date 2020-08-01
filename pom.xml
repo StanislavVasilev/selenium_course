@@ -8,14 +8,15 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <allure.version>1.4.19</allure.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
+        <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
+        <junit.version>4.13</junit.version>
         <aspectj.version>1.9.5</aspectj.version>
-        <compiler.version>3.8.1</compiler.version>
         <selenium.version>3.141.59</selenium.version>
-        <junit.version>4.12</junit.version>
         <allure-junit4.version>2.13.5</allure-junit4.version>
         <allure-junit-adaptor.version>1.5.4</allure-junit-adaptor.version>
-        <cucumber.version>4.8.1</cucumber.version>
+        <allure-java-annotations.version>1.5.4</allure-java-annotations.version>
         <default.encoding>UTF-8</default.encoding>
         <project.build.sourceEncoding>${default.encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${default.encoding}</project.reporting.outputEncoding>
@@ -25,38 +26,53 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${compiler.version}</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.2</version>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
                 <configuration>
-                    <encoding>UTF-8</encoding>
+                    <reportVersion>2.10.0</reportVersion>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>allure-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <includes>
-                        <include>**/TestRunner.java</include>
+                        <include>**/InsuranceTest.java</include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <properties>
-                        <propertie>
+                        <property>
                             <name>listener</name>
                             <value>my.company.util.AllureListener</value>
-                        </propertie>
+                        </property>
                     </properties>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -65,25 +81,6 @@
                         <version>${aspectj.version}</version>
                     </dependency>
                 </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>ru.yandex.qatools.allure</groupId>
-                <artifactId>allure-maven-plugin</artifactId>
-                <version>2.6</version>
-                <executions>
-                    <execution>
-                        <id>allure-report</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>11.0.0.beta1</version>
             </plugin>
         </plugins>
     </build>
@@ -99,36 +96,25 @@
             <version>${selenium.version}</version>
         </dependency>
         <dependency>
-            <groupId>ru.yandex.qatools.allure</groupId>
-            <artifactId>allure-java-adaptor-api</artifactId>
-            <version>${allure.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ru.yandex.qatools.allure</groupId>
-            <artifactId>allure-junit-adaptor</artifactId>
-            <version>${allure-junit-adaptor.version}</version>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit4</artifactId>
             <version>${allure-junit4.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-junit-adaptor</artifactId>
+            <version>${allure-junit-adaptor.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>${cucumber.version}</version>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-java-annotations</artifactId>
+            <version>${allure-java-annotations.version}</version>
         </dependency>
     </dependencies>
 </project>
