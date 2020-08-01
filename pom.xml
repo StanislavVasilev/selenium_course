@@ -39,15 +39,6 @@
                 <configuration>
                     <reportVersion>2.10.0</reportVersion>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>allure-report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

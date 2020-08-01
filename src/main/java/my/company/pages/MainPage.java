@@ -16,12 +16,12 @@ public class MainPage extends BasePage {
    * Элемент меню
    */
   @FindBy(xpath = "//span[text()='Страхование']/parent::button")
-  public WebElement insuranceMenu;
+  private WebElement insuranceMenu;
   /**
    * Элемент подменю
    */
   @FindBy(xpath = "//span[text()='Страхование']/ancestor::li//a[text()='Страхование путешественников']")
-  public WebElement insSubMenuItemInsuranceForTravelers;
+  private WebElement insSubMenuItemInsuranceForTravelers;
 
   /**
    * Конструктор класса с передаваемым параметром

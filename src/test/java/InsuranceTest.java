@@ -31,6 +31,6 @@ public class InsuranceTest extends BaseSteps {
     fieldData.put("Кем выдан", "УВД АБВГД");
     insuranceFormSteps.fillAllFields(fieldData);
     insuranceFormSteps.clickContinueButton();
-    Assert.assertFalse(insuranceFormSteps.getErrorVisible());
+    Assert.assertEquals("Произошла непредвиденная ошибка", insuranceFormSteps.getErrorText());
   }
 }

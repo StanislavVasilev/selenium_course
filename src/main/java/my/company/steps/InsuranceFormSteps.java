@@ -11,7 +11,7 @@ public class InsuranceFormSteps extends BaseSteps {
 
   @Step("Нажатие на кнопку Оформить и переход на 2ю вкладку Оформление")
   public void makeRegisterPerson() {
-    insuranceFormPage.clickButton(insuranceFormPage.makeInsuranceButton);
+    insuranceFormPage.clickButton("Оформить");
   }
 
   @Step("Поле {0} заполняется значением {1}")
@@ -26,18 +26,17 @@ public class InsuranceFormSteps extends BaseSteps {
 
   @Step("Нажатие кнопки Продолжить")
   public void clickContinueButton() {
-    insuranceFormPage.clickButton(insuranceFormPage.continueButton);
+    insuranceFormPage.clickButton("Продолжить");
   }
 
   @Step("Получение сообщения в блоке ошибок")
-  public Boolean getErrorVisible() {
-    boolean b = false;
+  public String getErrorText() {
+    String s = "";
     try {
-      b = insuranceFormPage.getTotalErrorBlock().isDisplayed();
-      takeScreenshot();
+      s = insuranceFormPage.getTotalErrorBlock().getText();
     } catch (NoSuchElementException e) {
       e.printStackTrace();
     }
-    return b;
+    return s;
   }
 }

@@ -1,6 +1,5 @@
 package my.company.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,53 +16,53 @@ public class InsuranceFormPage extends BasePage {
    * Заголовок страницы формы.
    */
   @FindBy(xpath = "//div[@class='product-title-wrapper']//h2[text()='Страхование путешественников']")
-  public WebElement insuranceFormPageTitle;
+  private WebElement insuranceFormPageTitle;
   /**
    * Кнопка Оформить в нижней части страницы в 1й вкладке.
    */
   @FindBy(xpath = "//button[text()='Оформить']")
-  public WebElement makeInsuranceButton;
+  private WebElement makeInsuranceButton;
 
   /**
    * Поля для заполнения. Выполняется поиск по id.
    */
   @FindBy(id = "surname_vzr_ins_0")
-  public WebElement visitorSurname;
+  private WebElement visitorSurname;
 
   @FindBy(id = "name_vzr_ins_0")
-  public WebElement visitorName;
+  private WebElement visitorName;
 
   @FindBy(id = "birthDate_vzr_ins_0")
-  public WebElement visitorBirthDate;
+  private WebElement visitorBirthDate;
 
   @FindBy(id = "person_lastName")
-  public WebElement personLastName;
+  private WebElement personLastName;
 
   @FindBy(id = "person_firstName")
-  public WebElement personFirstName;
+  private WebElement personFirstName;
 
   @FindBy(id = "person_middleName")
-  public WebElement personMiddleName;
+  private WebElement personMiddleName;
 
   @FindBy(id = "person_birthDate")
-  public WebElement personBirthDate;
+  private WebElement personBirthDate;
 
   @FindBy(id = "passportSeries")
-  public WebElement passportSeries;
+  private WebElement passportSeries;
 
   @FindBy(id = "passportNumber")
-  public WebElement passportNumber;
+  private WebElement passportNumber;
 
   @FindBy(id = "documentDate")
-  public WebElement passportDate;
+  private WebElement passportDate;
 
   @FindBy(id = "documentIssue")
-  public WebElement passportIssuedBy;
+  private WebElement passportIssuedBy;
   /**
    * Кнопка перехода к следующей вкладке, расположена в нижней части страницы во 2й вкладке.
    */
   @FindBy(xpath = "//button[contains(text(), 'Продолжить')]")
-  public WebElement continueButton;
+  private WebElement continueButton;
 
   /**
    * Блок с итоговым сообщением об ошибке.
@@ -74,7 +73,6 @@ public class InsuranceFormPage extends BasePage {
   public WebElement getTotalErrorBlock() {
     return totalErrorBlock;
   }
-
   /**
    * Конструктор принимающий на вход параметр
    *
@@ -89,8 +87,15 @@ public class InsuranceFormPage extends BasePage {
   /**
    * Метод клика на элемент внутри страницы.
    */
-  public InsuranceFormPage clickButton(WebElement element) {
-    clickOnElement(element);
+  public InsuranceFormPage clickButton(String buttonName) {
+    switch (buttonName) {
+      case "Оформить":
+        clickOnElement(makeInsuranceButton);
+        break;
+      case "Продолжить":
+        clickOnElement(continueButton);
+        break;
+    }
     return this;
   }
 
