@@ -19,6 +19,9 @@ public class BaseSteps {
   protected static String baseUrl;
   public static Properties properties = TestProperties.getInstance().getProperties();
 
+  /**
+   * doc
+   */
   @BeforeClass
   public static void setUp()  {
     switch (properties.getProperty("browser")) {

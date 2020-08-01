@@ -72,7 +72,7 @@ public class InsuranceFormPage extends BasePage {
   private WebElement totalErrorBlock;
 
   public WebElement getTotalErrorBlock() {
-
+    return totalErrorBlock;
   }
 
   /**
