@@ -29,7 +29,7 @@ public class DriverManager {
     return driver;
   }
 
-  public void stopDriver() {
+  public static void stopDriver() {
     driver.quit();
     driver = null;
   }
