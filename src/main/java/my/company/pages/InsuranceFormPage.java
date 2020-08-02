@@ -77,9 +77,6 @@ public class InsuranceFormPage extends BasePage {
   /**
    * Конструктор принимающий на вход параметр
    */
-  public InsuranceFormPage() {
-    PageFactory.initElements(BaseSteps.getDriver(), this);
-  }
 
   /**
    * Метод клика на элемент внутри страницы.

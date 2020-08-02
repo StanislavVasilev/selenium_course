@@ -1,9 +1,7 @@
 package my.company.pages;
 
-import my.company.steps.BaseSteps;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * Класс страницы раздела Страхование путешественников
@@ -22,13 +20,6 @@ public class InsuranceForTravelersPage extends BasePage {
   @FindBy(xpath = "//b[text()='Оформить онлайн']/ancestor::div[@class='kit-col kit-col_xs_12 kit-col_lg-top_40']/parent::div[@class='kit-row']//h1")
   private WebElement insuranceForTravelersTitle;
 
-  /**
-   * Конструктор, принимаеющий в качестве параметра драйвер
-   * Выполняет инициализацию элементов на странице.
-   */
-  public InsuranceForTravelersPage() {
-    PageFactory.initElements(BaseSteps.getDriver(), this);
-  }
 
   /**
    * Метод кликает на кнопку "ОФормить онлайн"
@@ -38,6 +29,4 @@ public class InsuranceForTravelersPage extends BasePage {
     clickOnElement(makeInsuranceButton);
     return this;
   }
-
-
 }

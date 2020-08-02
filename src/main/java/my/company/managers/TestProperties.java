@@ -1,4 +1,4 @@
-package my.company.util;
+package my.company.managers;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,7 +25,11 @@ public class TestProperties {
     return INSTANCE;
   }
 
-  public Properties getProperties(){
-    return properties;
+  public String getProperty(String param, String value) {
+    return properties.getProperty(param, value);
+  }
+
+  public String getProperty(String param) {
+    return properties.getProperty(param);
   }
 }

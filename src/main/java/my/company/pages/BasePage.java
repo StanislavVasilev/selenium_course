@@ -1,7 +1,8 @@
 package my.company.pages;
 
+import my.company.managers.DriverManager;
+import my.company.managers.PagesManager;
 import my.company.steps.BaseSteps;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -13,11 +14,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
 
-  WebDriver driver;
-
-  public BasePage() {
-    PageFactory.initElements((BaseSteps.getDriver()), this);
-  }
+  protected PagesManager manager = PagesManager.getPagesManager();
+  protected Actions action = new Actions(DriverManager.getDriver());
 
   /**
    * Заполнение поля
@@ -45,8 +43,7 @@ public class BasePage {
    * @param element передается Веб элемент
    */
   protected void moveToElement(WebElement element) {
-    Actions actions = new Actions(driver);
-    actions.moveToElement(element).build().perform();
+    action.moveToElement(element).build().perform();
   }
 
   /**
@@ -55,8 +52,7 @@ public class BasePage {
    * @param element Передается Веб элемент
    */
   protected void moveToElementAndClick(WebElement element) {
-    Actions actions = new Actions(driver);
-    actions.moveToElement(element).click().build().perform();
+    action.moveToElement(element).click().build().perform();
   }
 
 }
