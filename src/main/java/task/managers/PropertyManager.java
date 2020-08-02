@@ -1,4 +1,4 @@
-package managers;
+package task.managers;
 
 import java.io.File;
 import java.io.FileInputStream;
