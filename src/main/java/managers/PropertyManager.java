@@ -10,21 +10,22 @@ public class PropertyManager {
   private PropertyManager INSTANCE = null;
 
 
-  public PropertyManager getProperty() {
+  public PropertyManager() {
     try {
       properties.load(new FileInputStream(new File("src/main/resources" +
               System.getProperty("env", "application") + ".environment")));
     } catch (Exception e) {
       e.printStackTrace();
-    } return this;
+    }
   }
 
-  public PropertyManager getINSTANCE() {
+  public PropertyManager getInstance() {
     if (INSTANCE == null) {
       INSTANCE = new PropertyManager();
     }
     return INSTANCE;
   }
+
 
   public String getProperty(String key, String value) {
     return properties.getProperty(key, value);
