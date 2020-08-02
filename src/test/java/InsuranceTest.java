@@ -8,14 +8,15 @@ import org.junit.Test;
 import java.util.HashMap;
 
 public class InsuranceTest extends BaseSteps {
+  MainSteps mainSteps = new MainSteps();
+  InsurancePageSteps insurancePageSteps = new InsurancePageSteps();
+  InsuranceFormSteps insuranceFormSteps = new InsuranceFormSteps();
 
   @Test
   public void testInsurance() {
-    MainSteps mainSteps = new MainSteps();
-    mainSteps.stepSelectMenu("Страхование", "Страхование путешественников");
-    InsurancePageSteps insurancePageSteps = new InsurancePageSteps();
+    mainSteps.stepSelectMenu("Страхование");
+    mainSteps.stepSelectSubMenuItem("Страхование путешественников");
     insurancePageSteps.clickMakeInsuranceButton();
-    InsuranceFormSteps insuranceFormSteps = new InsuranceFormSteps();
     insuranceFormSteps.makeRegisterPerson();
     HashMap<String, String> fieldData = new HashMap<>();
     fieldData.put("Имя Застрахованного", "Станислав");

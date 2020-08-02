@@ -8,8 +8,13 @@ public class MainSteps extends BaseSteps {
 
   MainPage mainPage = new MainPage(driver);
 
-  @Step("Выбран пункт меню {0}, выбран пункт подменю {1}")
-  public void stepSelectMenu(String menuItem, String subMenuItem) {
-    mainPage.openMenu(menuItem).openSubMenu(subMenuItem);
+  @Step("Выбран пункт меню {0}")
+  public void stepSelectMenu(String menuItem) {
+    mainPage.openMenu(menuItem);
+  }
+
+  @Step("Выбран пункт подменю {0}")
+  public void stepSelectSubMenuItem(String subMenuItem){
+    mainPage.openSubMenu(subMenuItem);
   }
 }
