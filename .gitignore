@@ -3,3 +3,6 @@ $ cat .gitignore
 *.md
 ignore/
 .ignore/
+.idea
+target
+*.iml
