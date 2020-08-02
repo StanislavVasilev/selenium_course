@@ -4,6 +4,7 @@ import task.pages.*;
 
 public class PagesManager {
 
+  private static PagesManager pageManager;
   private MainPage mainPage;
   private MarketPage marketPage;
   private ElectronicsPage electronicsPage;
@@ -15,8 +16,8 @@ public class PagesManager {
   }
 
   public PagesManager getApp() {
-    if (PagesManager == null) {
-      new PagesManager();
+    if (pageManager == null) {
+      pageManager = new PagesManager();
     }
     return this;
   }
