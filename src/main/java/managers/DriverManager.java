@@ -11,11 +11,11 @@ public class DriverManager {
   private static WebDriver initDriver() {
     switch (property.getProperty("browser")) {
       case "firefox":
-        System.setProperty("", "");
+        System.setProperty("webdriver.gecko.driver", property.getProperty("webdriver.gecko.driver"));
         driver = new FirefoxDriver();
         break;
       default:
-        System.setProperty("", "");
+        System.setProperty("webdriver.chrome.driver", "webdriver.chrome.driver");
         driver = new ChromeDriver();
         break;
     }
@@ -23,7 +23,7 @@ public class DriverManager {
   }
 
   public static WebDriver getDriver() {
-    if (driver==null){
+    if (driver == null) {
       initDriver();
     }
     return driver;
