@@ -1,5 +1,6 @@
 package managers;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -11,11 +12,11 @@ public class PropertyManager {
 
   public PropertyManager getProperty() {
     try {
-      properties.load(new FileInputStream("src/main/resources" +
-              System.getProperty("env", "application") + ".environment"));
+      properties.load(new FileInputStream(new File("src/main/resources" +
+              System.getProperty("env", "application") + ".environment")));
     } catch (Exception e) {
       e.printStackTrace();
-    }
+    } return this;
   }
 
   public PropertyManager getINSTANCE() {
@@ -25,11 +26,11 @@ public class PropertyManager {
     return INSTANCE;
   }
 
-  public String getProperty(String key, String value){
+  public String getProperty(String key, String value) {
     return properties.getProperty(key, value);
   }
 
-  public String getProperty(String key){
+  public String getProperty(String key) {
     return properties.getProperty(key);
   }
 }
