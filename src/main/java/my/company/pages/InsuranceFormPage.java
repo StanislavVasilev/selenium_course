@@ -1,5 +1,6 @@
 package my.company.pages;
 
+import my.company.steps.BaseSteps;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -75,13 +76,9 @@ public class InsuranceFormPage extends BasePage {
   }
   /**
    * Конструктор принимающий на вход параметр
-   *
-   * @param driver пронаследованный драйвер от суперкласса
    */
-  public InsuranceFormPage(WebDriver driver) {
-    PageFactory.initElements(driver, this);
-    new WebDriverWait(driver, 10, 1000).until(ExpectedConditions.visibilityOf(insuranceFormPageTitle));
-    this.driver = driver;
+  public InsuranceFormPage() {
+    PageFactory.initElements(BaseSteps.getDriver(), this);
   }
 
   /**

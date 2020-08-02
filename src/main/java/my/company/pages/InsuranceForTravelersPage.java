@@ -1,6 +1,6 @@
 package my.company.pages;
 
-import org.openqa.selenium.WebDriver;
+import my.company.steps.BaseSteps;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,13 +24,10 @@ public class InsuranceForTravelersPage extends BasePage {
 
   /**
    * Конструктор, принимаеющий в качестве параметра драйвер
-   *
-   * @param driver пронаследованный от суперкласса.
    * Выполняет инициализацию элементов на странице.
    */
-  public InsuranceForTravelersPage(WebDriver driver) {
-    PageFactory.initElements(driver, this);
-    this.driver = driver;
+  public InsuranceForTravelersPage() {
+    PageFactory.initElements(BaseSteps.getDriver(), this);
   }
 
   /**

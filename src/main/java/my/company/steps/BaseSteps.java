@@ -1,14 +1,15 @@
 package my.company.steps;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.qameta.allure.Attachment;
 import my.company.util.TestProperties;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import io.qameta.allure.*;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -19,28 +20,34 @@ public class BaseSteps {
   protected static String baseUrl;
   public static Properties properties = TestProperties.getInstance().getProperties();
 
+  public static WebDriver getDriver() {
+    if (driver == null) {
+      switch (properties.getProperty("browser")) {
+        case "firefox":
+          System.setProperty("webdriver.gecko.driver", properties.getProperty("webdriver.gecko.driver"));
+          driver = new FirefoxDriver();
+          break;
+        case "chrome":
+          System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
+          driver = new ChromeDriver();
+          break;
+      }
+    }
+    return driver;
+  }
+
   /**
    * doc
    */
-  @BeforeClass
-  public static void setUp()  {
-    switch (properties.getProperty("browser")) {
-      case "firefox":
-        System.setProperty("webdriver.gecko.driver", properties.getProperty("webdriver.gecko.driver"));
-        driver = new FirefoxDriver();
-        break;
-      case "chrome":
-        System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
-        driver = new ChromeDriver();
-        break;
-    }
+  @Before
+  public static void setUp() {
     baseUrl = properties.getProperty("app.url");
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     driver.manage().window().maximize();
     driver.get(baseUrl);
   }
 
-  @AfterClass
+  @After
   public static void afterMethod() {
     driver.quit();
   }

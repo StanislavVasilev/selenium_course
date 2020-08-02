@@ -1,8 +1,10 @@
 package my.company.pages;
 
+import my.company.steps.BaseSteps;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * Родительский класс.
@@ -13,10 +15,15 @@ public class BasePage {
 
   WebDriver driver;
 
+  public BasePage() {
+    PageFactory.initElements((BaseSteps.getDriver()), this);
+  }
+
   /**
    * Заполнение поля
+   *
    * @param element веб элемент, передаваемый в качестве параметра
-   * @param value значение, которое заносится в поле
+   * @param value   значение, которое заносится в поле
    */
   protected void fillField(WebElement element, String value) {
     element.click();
@@ -25,7 +32,8 @@ public class BasePage {
 
   /**
    * Клик на элемент
-   * @param element  передается Веб элемент
+   *
+   * @param element передается Веб элемент
    */
   protected void clickOnElement(WebElement element) {
     element.click();
@@ -33,6 +41,7 @@ public class BasePage {
 
   /**
    * Наведение курсора на элемент меню
+   *
    * @param element передается Веб элемент
    */
   protected void moveToElement(WebElement element) {
@@ -42,6 +51,7 @@ public class BasePage {
 
   /**
    * Наведение курсора на элемент и клик по нему
+   *
    * @param element Передается Веб элемент
    */
   protected void moveToElementAndClick(WebElement element) {

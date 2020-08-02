@@ -1,5 +1,6 @@
 package my.company.pages;
 
+import my.company.steps.BaseSteps;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,13 +26,9 @@ public class MainPage extends BasePage {
 
   /**
    * Конструктор класса с передаваемым параметром
-   *
-   * @param driver пронаследованный от суперкласса драйвер
-   *               Реализовано явное ожидание заголовка страницы(может быть лишнее)
    */
-  public MainPage(WebDriver driver) {
-    PageFactory.initElements(driver, this);
-    this.driver = driver;
+  public MainPage() {
+    PageFactory.initElements(BaseSteps.getDriver(), this);
   }
 
   /**
