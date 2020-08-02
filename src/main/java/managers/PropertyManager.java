@@ -4,14 +4,15 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class PropertyManager {
-  public static Properties properties = new Properties();
+  public final Properties properties = new Properties();
 
   private PropertyManager INSTANCE = null;
 
+
   public PropertyManager getProperty() {
     try {
-      properties.load(new FileInputStream("src/main/resources",
-              properties.getProperty(("key", "value"), "environment"));
+      properties.load(new FileInputStream("src/main/resources" +
+              System.getProperty("env", "application") + ".environment"));
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -24,4 +25,11 @@ public class PropertyManager {
     return INSTANCE;
   }
 
+  public String getProperty(String key, String value){
+    return properties.getProperty(key, value);
+  }
+
+  public String getProperty(String key){
+    return properties.getProperty(key);
+  }
 }
