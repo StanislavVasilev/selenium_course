@@ -19,25 +19,21 @@ public class CucumberSteps {
   @When("^выбран пункт меню \"(.+)\"$")
   public void selectMenuItem(String menuItem) {
     mainSteps.stepSelectMenu(menuItem);
-    throw new cucumber.api.PendingException();
   }
 
   @When("^выбран пункт подменю -\"(.+)\"$")
   public void selectSubmenuItem(String submenuItem) {
     mainSteps.stepSelectSubMenuItem(submenuItem);
-    throw new cucumber.api.PendingException();
   }
 
   @Then("^выполнено нажатие нажатие на кнопку - Оформить онлайн")
   public void clickMakeInsuranceButton() {
     insurancePageSteps.clickMakeInsuranceButton();
-    throw new cucumber.api.PendingException();
   }
 
   @When("^выполнено нажатие на кнопку Оформить и переход на 2ю вкладку Оформление")
   public void stepClickToMakeRegisterPerson() {
     insuranceFormSteps.makeRegisterPerson();
-    throw new cucumber.api.PendingException();
   }
 
   @When("^заполняются поля формы")
@@ -49,7 +45,6 @@ public class CucumberSteps {
   @Then("^выполнно нажатие на кнопку Продолжить")
   public void stepClickContinueButton() {
     insuranceFormSteps.clickContinueButton();
-    throw new cucumber.api.PendingException();
   }
 
 //  @Тогда("^проверка текста в ошибки")

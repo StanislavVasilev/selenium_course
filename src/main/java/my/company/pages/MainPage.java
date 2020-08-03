@@ -1,9 +1,7 @@
 package my.company.pages;
 
-import my.company.steps.BaseSteps;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * Класс главной страницы

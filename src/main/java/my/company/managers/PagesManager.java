@@ -12,7 +12,7 @@ public class PagesManager {
   InsuranceForTravelersPage insuranceForTravelersPage;
   MainPage mainPage;
 
-  public PagesManager() {
+  private PagesManager() {
   }
 
   public static PagesManager getPagesManager() {

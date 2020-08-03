@@ -2,7 +2,6 @@ package my.company.pages;
 
 import my.company.managers.DriverManager;
 import my.company.managers.PagesManager;
-import my.company.steps.BaseSteps;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -16,6 +15,10 @@ public class BasePage {
 
   protected PagesManager manager = PagesManager.getPagesManager();
   protected Actions action = new Actions(DriverManager.getDriver());
+
+  public BasePage() {
+    PageFactory.initElements(DriverManager.getDriver(), this);
+  }
 
   /**
    * Заполнение поля
