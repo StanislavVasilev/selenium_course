@@ -1,4 +1,4 @@
 package task.pages;
 
-public class ResultPage {
+public class ResultPage extends BasePage{
 }

@@ -13,7 +13,7 @@ public class PropertyManager {
   public PropertyManager() {
     try {
       properties.load(new FileInputStream(new File("src/main/resources" +
-              System.getProperty("env", "application") + ".environment")));
+              System.getProperty("env", "application") + ".properties")));
     } catch (Exception e) {
       e.printStackTrace();
     }

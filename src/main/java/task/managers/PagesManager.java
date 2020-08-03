@@ -15,7 +15,7 @@ public class PagesManager {
   public PagesManager() {
   }
 
-  public PagesManager getApp() {
+  private PagesManager getApp() {
     if (pageManager == null) {
       pageManager = new PagesManager();
     }

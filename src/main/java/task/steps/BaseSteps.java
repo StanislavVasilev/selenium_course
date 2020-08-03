@@ -1,25 +1,12 @@
 package task.steps;
 
-import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.Before;
+import io.qameta.allure.Attachment;
 
 public class BaseSteps {
 
-  @Before
-  public void getStart(){
+  @Attachment("")
+  public static byte[] takeScreenShot() {
+    return null;
   }
-
-  @AfterStep
-  public void takeScreenShot(){
-
-  }
-
-  @After
-  public void after(){
-
-  }
-
-
 
 }

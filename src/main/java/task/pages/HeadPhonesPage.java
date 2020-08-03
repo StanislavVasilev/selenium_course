@@ -1,4 +1,4 @@
 package task.pages;
 
-public class HeadPhonesPage {
+public class HeadPhonesPage extends BasePage {
 }
