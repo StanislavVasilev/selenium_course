@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import my.company.pages.MainPage;
 
 
-public class MainSteps {
+public class MainSteps extends BaseSteps{
 
   MainPage mainPage = new MainPage();
 

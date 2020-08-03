@@ -8,6 +8,7 @@ import io.cucumber.java.ru.Тогда;
 import my.company.steps.InsuranceFormSteps;
 import my.company.steps.InsurancePageSteps;
 import my.company.steps.MainSteps;
+import org.junit.Assert;
 
 import java.util.Map;
 
@@ -42,13 +43,15 @@ public class CucumberSteps {
     map.forEach((key, value) -> insuranceFormSteps.stepFillField(key, value));
   }
 
-  @Then("^выполнно нажатие на кнопку Продолжить")
+  @When("^выполнно нажатие на кнопку Продолжить")
   public void stepClickContinueButton() {
     insuranceFormSteps.clickContinueButton();
   }
 
-//  @Тогда("^проверка текста в ошибки")
-//  public boolean checkErrorText(String text) {
-//    return insuranceFormSteps.getErrorText().equals(text);
-//  }
+  @Then("^проверка текста ошибки$")
+  public void checkErrorText(){
+    String errorText = insuranceFormSteps.getErrorText();
+    Assert.assertEquals("Hello world", errorText);
+  }
+
 }
