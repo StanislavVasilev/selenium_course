@@ -1,10 +1,13 @@
-package my.company.steps;
+package steps;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
+import my.company.steps.InsuranceFormSteps;
+import my.company.steps.InsurancePageSteps;
+import my.company.steps.MainSteps;
 
 import java.util.Map;
 
