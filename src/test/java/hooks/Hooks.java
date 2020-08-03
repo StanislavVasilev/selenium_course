@@ -9,13 +9,21 @@ import my.company.steps.BaseSteps;
 public class Hooks {
 
   /**
-   * doc
+   * Хуки кукумбера классы с аналогами бефора, афтера и других анноттаций. Используеются вместо аннотаций junit.
+   * Путь к хукам указывается в кукумбер-ранере.
+   *
+   * @see cucumberRunner.CucumberRunner
    */
   @Before
   public static void setUp() {
     InitManager.setUp();
   }
 
+  /**
+   * Если тест упал - создается скриншот.
+   *
+   * @param scenario передается сценарий кукумбера
+   */
   @After
   public static void afterMethod(Scenario scenario) {
     if (scenario.isFailed()) {
