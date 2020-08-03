@@ -6,3 +6,5 @@ ignore/
 .idea
 target
 *.iml
+.allure/
+allure-results
