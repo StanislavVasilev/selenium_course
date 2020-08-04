@@ -15,7 +15,7 @@ public class DriverManager {
         driver = new FirefoxDriver();
         break;
       default:
-        System.setProperty("webdriver.chrome.driver", "webdriver.chrome.driver");
+        System.setProperty("webdriver.chrome.driver", property.getProperty("webdriver.chrome.driver"));
         driver = new ChromeDriver();
         break;
     }

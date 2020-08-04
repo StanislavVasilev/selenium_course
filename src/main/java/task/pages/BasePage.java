@@ -1,6 +1,5 @@
 package task.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +9,7 @@ import task.managers.DriverManager;
 import task.managers.PagesManager;
 
 public class BasePage {
-  protected PagesManager pagesManager = new PagesManager();
+  public PagesManager pagesManager = new PagesManager();
   private Actions action = new Actions(DriverManager.getDriver());
 
   WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 10, 200);
