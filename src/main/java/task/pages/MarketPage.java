@@ -19,7 +19,7 @@ public class MarketPage extends BasePage {
   @FindBy(xpath = "//a[text()='Электроника']/parent::div//a[text()='Наушники и Bluetooth-гарнитуры']")
   WebElement linkToHeadPhonesPage;
 
-  public void selectElectronics() {
+  private void selectElectronics() {
     moveToElement(electronicsButton);
   }
 
@@ -40,4 +40,7 @@ public class MarketPage extends BasePage {
     }
   }
 
+  public void checkCatalogHeader() {
+
+  }
 }

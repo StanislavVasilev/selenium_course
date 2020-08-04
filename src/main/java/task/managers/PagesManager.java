@@ -9,7 +9,7 @@ public class PagesManager {
   private MarketPage marketPage;
   private SearchFormHelper searchFormHelper;
   private HeadPhonesPage headPhonesPage;
-  private TVPage tvPage;
+  private TvPage tvPage;
 
   public PagesManager() {
   }
@@ -49,9 +49,9 @@ public class PagesManager {
     return headPhonesPage;
   }
 
-  public TVPage getTvPage() {
+  public TvPage getTvPage() {
     if (tvPage == null) {
-      tvPage = new TVPage();
+      tvPage = new TvPage();
     }
     return tvPage;
   }

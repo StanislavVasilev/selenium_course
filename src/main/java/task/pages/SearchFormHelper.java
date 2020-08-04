@@ -45,16 +45,27 @@ public class SearchFormHelper extends BasePage {
   /**
    * Блок с элементами фильтра Производитель.
    */
+
   @FindBy(xpath = "//legend[text()='Производитель']/parent::fieldset/ul")
   private WebElement manufacturersList;
+  /**
+   * Заголовок раздела на странице
+   */
+
+  @FindBy(xpath = "//h1")
+  private WebElement tvPageTitle;
+
+  public String getPageTitle() {
+    return tvPageTitle.getText();
+  }
 
   /**
    * Ввод значения сумма в поле фильтра Цена от
    *
    * @param sum принимает значение суммы ОТ
    */
-  public void fillCostFrom(String sum) {
-    fillField(costFrom, sum);
+  public void fillCostFrom(int sum) {
+    fillField(costFrom, Integer.toString(sum));
   }
 
   /**
@@ -84,7 +95,7 @@ public class SearchFormHelper extends BasePage {
    */
   public String getResultStringName(int resultItemNumber) {
     List<String> list = getResultList();
-    return list.get(resultItemNumber);
+    return list.get(resultItemNumber-1);
   }
 
   /**
@@ -112,7 +123,7 @@ public class SearchFormHelper extends BasePage {
    *
    * @param manufacturerName принимает наименование производителя как входной параметр.
    */
-  public void selectManufacturer(String manufacturerName) {
+  public SearchFormHelper selectManufacturer(String manufacturerName) {
     String base = "Производитель ";
     switch (manufacturerName) {
       case "LG":
@@ -125,6 +136,7 @@ public class SearchFormHelper extends BasePage {
         manufacturersList.findElement(By.name(base + "Beats")).click();
         break;
     }
+    return this;
   }
 
 }

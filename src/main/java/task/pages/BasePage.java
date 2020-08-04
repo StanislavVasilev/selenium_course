@@ -15,34 +15,26 @@ public class BasePage {
 
   WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 10, 200);
 
-  public void waitForVisibleElement(WebElement element) {
-    wait.until(ExpectedConditions.visibilityOf(element));
-  }
-
   public void pagesManager() {
     PageFactory.initElements(DriverManager.getDriver(), this);
   }
 
-  public void clickElement(WebElement element) {
+  protected void waitForVisibleElement(WebElement element) {
+    wait.until(ExpectedConditions.visibilityOf(element));
+  }
+
+  protected void clickElement(WebElement element) {
     element.click();
   }
 
-  public void fillField(WebElement element, String value) {
+  protected void fillField(WebElement element, String value) {
     element.clear();
     element.sendKeys(value);
   }
 
-  public void moveToElement(WebElement element) {
+  protected void moveToElement(WebElement element) {
     action.moveToElement(element);
   }
 
-  public void selectManufacturer(String manufacturerName) {
-    String base = "";
-    switch (manufacturerName) {
-      case "LG":
-        manufacturersList.findElement(By.name(base + manufacturerName)).click();
-        break;
-    }
-  }
 
 }
