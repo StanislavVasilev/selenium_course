@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Класс реализован для поиска на странице выбранного раздела. Для всех разделов эти элементы и методы одинаковы.
@@ -73,9 +75,12 @@ public class SearchFormHelper extends BasePage {
    *
    * @return строковое значение количества получившихся результатов
    */
-  public String getSearchResult() {
+  public int getSearchResultCount() {
     waitForVisibleElement(result);
-    return result.getText();
+    String searchCount = result.getText();
+    Pattern pattern = Pattern.compile("/d");
+    Matcher matcher = pattern.matcher(searchCount);
+    return Integer.parseInt(matcher.group());
   }
 
   /**
@@ -95,7 +100,7 @@ public class SearchFormHelper extends BasePage {
    */
   public String getResultStringName(int resultItemNumber) {
     List<String> list = getResultList();
-    return list.get(resultItemNumber-1);
+    return list.get(resultItemNumber - 1);
   }
 
   /**

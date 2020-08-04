@@ -5,9 +5,6 @@ import org.junit.Assert;
 import task.pages.SearchFormHelper;
 import task.pages.TvPage;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class TvSearchSteps {
   SearchFormHelper searchForm = new SearchFormHelper();
   TvPage page = new TvPage();
@@ -29,12 +26,10 @@ public class TvSearchSteps {
 
   @Step("Проверяется число найденных моделей")
   public void getSearchResultFromFilters(int count) {
-    String searchCount = searchForm.getSearchResult();
-    Pattern pattern = Pattern.compile("/d");
-    Matcher matcher = pattern.matcher(searchCount);
-    int resultCount = Integer.parseInt(matcher.group());
+    int resultCount = searchForm.getSearchResultCount();
     Assert.assertEquals(count, resultCount);
   }
+
 
   @Step("Выбрана первая модель из списка, выполнен поиск по ее наименованию и проверка, что в результатах поиска та модель, которую искали")
   public void getFirstModelAndSearch(int resultNumber) {

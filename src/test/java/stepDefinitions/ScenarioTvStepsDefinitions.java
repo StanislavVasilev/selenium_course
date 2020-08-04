@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.ru.Когда;
 import task.pages.MainPage;
 import task.steps.MainPageSteps;
 import task.steps.MarketPageSteps;
@@ -17,9 +18,9 @@ public class ScenarioTvStepsDefinitions {
     mainPageSteps.gotoMarketPage();
   }
 
-  @Then("^Выполнен переход на страницу раздела \"([^\"]*)\" $")
-  public void gotoTvPage(String name) {
-    marketPageSteps.openItemsCatalog().openSubMenuLink(name);
+  @Когда("Выполнен переход на страницу раздела {string}")
+  public void gotoTvPage(String arg0) {
+    marketPageSteps.checkCatalogItem().openSubMenuLink(arg0);
   }
 
   @When("^Выполнена проверка заголовка страницы")
@@ -27,20 +28,20 @@ public class ScenarioTvStepsDefinitions {
     tvSearchSteps.checkTvPageTitle();
   }
 
-  @When("^Выполнен поиск телевизоров стоимостью от (\\d+) и фирмой производителем: \"([^\"]*)\" и \"([^\"]*)\"$")
+  @When("^Выполнен поиск телевизоров стоимостью от (\\d+) и фирмой производителем: \"(.+)\" и \"(.+)\"$")
   public void searchTv(int sum, String name1, String name2) {
-    tvSearchSteps.fillCostFromField(20000);
+    tvSearchSteps.fillCostFromField(sum);
     tvSearchSteps.selectManufactures(name1, name2);
   }
 
-  @When("^проверено, что количество ожидаемых равно (\\d+) и оно равно фактическому $")
-  public void checkSearchResultCount() {
-    tvSearchSteps.getSearchResultFromFilters(500);
+  @Then("^проверка, что ожидаемое и фактическое количество найденных моделей равны (\\d+)")
+  public void checkSearchResultCount(int count) {
+    tvSearchSteps.getSearchResultFromFilters(count);
   }
 
-  @When("^Из списка ТВ в результатах поиска взят (\\d+) элемент, по нему выполнен поиск и проверка, что в результатах поиска он есть$")
-  public void checkTvInResults() {
-    tvSearchSteps.getFirstModelAndSearch(1);
+  @When("^Из списка в результатах поиска взят (\\d+) элемент, по нему выполнен поиск и проверка, что в результатах поиска он есть$")
+  public void checkTvInResults(int modelNumber) {
+    tvSearchSteps.getFirstModelAndSearch(modelNumber);
   }
 
 }
