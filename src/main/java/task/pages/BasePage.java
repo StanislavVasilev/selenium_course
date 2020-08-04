@@ -14,7 +14,7 @@ public class BasePage {
 
   WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 10, 200);
 
-  public void getBasePage() {
+  public BasePage() {
     PageFactory.initElements(DriverManager.getDriver(), this);
   }
 
@@ -22,6 +22,9 @@ public class BasePage {
     wait.until(ExpectedConditions.visibilityOf(element));
   }
 
+  protected void waitForClickableElement(WebElement element){
+    wait.until(ExpectedConditions.elementToBeClickable(element));
+  }
   protected void clickElement(WebElement element) {
     element.click();
   }

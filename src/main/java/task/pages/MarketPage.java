@@ -24,6 +24,7 @@ public class MarketPage extends BasePage {
   }
 
   public void openMenu() {
+    waitForClickableElement(menuItem);
     clickElement(menuItem);
   }
 

@@ -13,14 +13,14 @@ public class MarketPageSteps {
   }
 
   @Step("Проверяется, что открыто меню Электроника")
-  public MarketPageSteps checkCatalogItem(){
+  public void checkCatalogItem(){
     page.checkCatalogHeader();
-    return this;
   }
 
   @Step("Выполняется переход по ссылке в подменю {0}")
-  public void openSubMenuLink(String submenuItemLink){
+  public MarketPageSteps openSubMenuLink(String submenuItemLink){
     page.openSubMenuLink(submenuItemLink);
+    return this;
   }
 
 

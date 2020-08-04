@@ -20,7 +20,7 @@ public class ScenarioTvStepsDefinitions {
 
   @Когда("Выполнен переход на страницу раздела {string}")
   public void gotoTvPage(String arg0) {
-    marketPageSteps.checkCatalogItem().openSubMenuLink(arg0);
+    marketPageSteps.openItemsCatalog().openSubMenuLink(arg0);
   }
 
   @When("^Выполнена проверка заголовка страницы")
