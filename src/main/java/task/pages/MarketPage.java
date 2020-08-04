@@ -16,7 +16,7 @@ public class MarketPage extends BasePage {
   @FindBy(xpath = "//a[text()='Электроника']/parent::div//a[text()='Телевизоры']")
   private WebElement linkToTvPage;
 
-  @FindBy(xpath = "")
+  @FindBy(xpath = "//a[text()='Электроника']/parent::div//a[text()='Наушники и Bluetooth-гарнитуры']")
   WebElement linkToHeadPhonesPage;
 
   public void selectElectronics() {
@@ -33,7 +33,7 @@ public class MarketPage extends BasePage {
         moveToElement(linkToTvPage);
         clickElement(linkToTvPage);
         break;
-      case "Наушники":
+      case "Наушники и Bluetooth-гарнитуры":
         moveToElement(linkToHeadPhonesPage);
         clickElement(linkToHeadPhonesPage);
         break;

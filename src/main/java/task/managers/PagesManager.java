@@ -7,10 +7,9 @@ public class PagesManager {
   private static PagesManager pageManager;
   private MainPage mainPage;
   private MarketPage marketPage;
-  private ElectronicsPage electronicsPage;
+  private SearchFormHelper searchFormHelper;
   private HeadPhonesPage headPhonesPage;
   private TVPage tvPage;
-  private ResultPage resultPage;
 
   public PagesManager() {
   }
@@ -36,11 +35,11 @@ public class PagesManager {
     return marketPage;
   }
 
-  public ElectronicsPage getElectronicsPage() {
-    if (electronicsPage == null) {
-      electronicsPage = new ElectronicsPage();
+  public SearchFormHelper getSearchFormHelper() {
+    if (searchFormHelper == null) {
+      searchFormHelper = new SearchFormHelper();
     }
-    return electronicsPage;
+    return searchFormHelper;
   }
 
   public HeadPhonesPage getHeadPhonesPage() {
@@ -57,10 +56,4 @@ public class PagesManager {
     return tvPage;
   }
 
-  public ResultPage getResultPage() {
-    if (resultPage == null) {
-      resultPage = new ResultPage();
-    }
-    return resultPage;
-  }
 }

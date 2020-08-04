@@ -1,5 +1,6 @@
 package task.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -33,6 +34,15 @@ public class BasePage {
 
   public void moveToElement(WebElement element) {
     action.moveToElement(element);
+  }
+
+  public void selectManufacturer(String manufacturerName) {
+    String base = "";
+    switch (manufacturerName) {
+      case "LG":
+        manufacturersList.findElement(By.name(base + manufacturerName)).click();
+        break;
+    }
   }
 
 }
