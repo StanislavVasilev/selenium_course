@@ -9,12 +9,12 @@ import task.managers.DriverManager;
 import task.managers.PagesManager;
 
 public class BasePage {
-  public PagesManager pagesManager = new PagesManager();
+  protected PagesManager pagesManager = PagesManager.getApp();
   private Actions action = new Actions(DriverManager.getDriver());
 
   WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 10, 200);
 
-  public void pagesManager() {
+  public void getBasePage() {
     PageFactory.initElements(DriverManager.getDriver(), this);
   }
 

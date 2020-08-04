@@ -14,11 +14,11 @@ public class PagesManager {
   public PagesManager() {
   }
 
-  private PagesManager getApp() {
+  public static PagesManager getApp() {
     if (pageManager == null) {
       pageManager = new PagesManager();
     }
-    return this;
+    return pageManager;
   }
 
   public MainPage getMainPage() {
