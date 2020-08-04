@@ -4,17 +4,56 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class TVPage extends BasePage {
+import java.util.ArrayList;
+import java.util.List;
 
+public class TVPage extends BasePage {
+  /**
+   * Заголовок раздела на странице
+   */
   @FindBy(xpath = "//h1[text()='Телевизоры']")
   private WebElement tvPageTitle;
 
+  /**
+   * Поле поискового фильтра "Цена от"
+   */
   @FindBy(name = "Цена от")
-  private WebElement element;
+  private WebElement costFrom;
 
+  /**
+   * Блок с элементами фильтра Производитель.
+   */
   @FindBy(xpath = "//legend[text()='Производитель']/parent::fieldset/ul")
   private WebElement manufacturersList;
 
+  /**
+   * Тултип, который показывает количество результатов поиска
+   */
+  @FindBy(xpath = "//div[contains(text(), 'Найдено')]")
+  private WebElement result;
+
+  /**
+   * Блок с результатами поиска
+   */
+  @FindBy(xpath = "//div[@data-zone-name='SearchResults']")
+  private WebElement resultItem;
+
+  /**
+   * Поле ввода строкового поискового запроса под шапкой страницы.
+   */
+  @FindBy(id = "header-search")
+  private WebElement searchField;
+  /**
+   * Кнопка Найти справа от поля ввода строкового запроса.
+   */
+  @FindBy(xpath = "//div[text()='Найти']/parent::button[@type='submit']")
+  private WebElement searchButton;
+
+  /**
+   * Выбор производиетеля
+   *
+   * @param manufacturerName принимает наименование производителя как входной параметр.
+   */
   public void selectManufacturer(String manufacturerName) {
     String base = "Производитель ";
     switch (manufacturerName) {
@@ -29,5 +68,67 @@ public class TVPage extends BasePage {
         break;
     }
   }
+
+  /**
+   * Метод получает список наименований из результатов поиска.
+   *
+   * @return возвращается список телевизоров в порядке добавления.
+   */
+  public List<String> getResultList() {
+    List<String> stringList = new ArrayList<>();
+    List<WebElement> list = resultItem.findElements(By.xpath("//div[@data-zone-name='SearchResults']//a[@title]"));
+    for (WebElement element : list) {
+      stringList.add(element.getAttribute("title"));
+    }
+    return stringList;
+  }
+
+  /**
+   * Ввод значения сумма в поле фильтра Цена от
+   *
+   * @param sum принимает значение суммы ОТ
+   */
+  public void fillCostFrom(String sum) {
+    fillField(costFrom, sum);
+  }
+
+  /**
+   * Получение текста из тултипа, в котором пишется количество результатов поиска.
+   *
+   * @return строковое значение количества получившихся результатов
+   */
+  public String getSearchResult() {
+    waitForVisibleElement(result);
+    return result.getText();
+  }
+
+  /**
+   * @param resultItemNumber передается порядковый номер списка найденных телевизоров
+   */
+  public String getResultStringName(int resultItemNumber) {
+    List<String> list = getResultList();
+    return list.get(resultItemNumber);
+  }
+
+  /**
+   * Заполнение поискового поля ввода
+   *
+   * @param name наименование элемента
+   */
+  private void fillSearchField(String name) {
+    fillField(searchField, name);
+  }
+
+  /**
+   * Выполнение поиска
+   *
+   * @param name
+   */
+  public void searchFor(String name) {
+    fillSearchField(name);
+    clickElement(searchButton);
+  }
+
+
 }
 
