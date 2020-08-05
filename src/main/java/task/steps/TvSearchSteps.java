@@ -21,7 +21,8 @@ public class TvSearchSteps {
 
   @Step("Выбираются нужные модели: {0} и {1}")
   public void selectManufactures(String name1, String name2) {
-    searchForm.selectManufacturer(name1).selectManufacturer(name2);
+    searchForm.selectManufacturer(name1);
+    searchForm.selectManufacturer(name2);
   }
 
   @Step("Проверяется число найденных моделей")

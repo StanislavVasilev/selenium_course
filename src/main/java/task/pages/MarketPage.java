@@ -10,6 +10,11 @@ public class MarketPage extends BasePage {
 //  @FindBy(xpath = "//button[@role='tab']")
   @FindBy(xpath = "//span[text()='Каталог товаров']")
   private WebElement menuItem;
+  /**
+   * Локатор тултипа, который закрывает собой кнопку Каталог Товаров. Этот тултип открывается на странице маркета при переходе к ней.
+   */
+  @FindBy(xpath = "//span[contains(text(), 'Напишите, какой товар вам нужен')]")
+  private WebElement tooltip;
 
   @FindBy(xpath = "//span[text()='Да, спасибо']/parent::button")
   private WebElement closePopupButton;
@@ -28,8 +33,9 @@ public class MarketPage extends BasePage {
   }
 
   public void openMenu() {
+    switchToNextHandle();
     clickElement(closePopupButton);
-    waitForVisibleElement(menuItem);
+    clickElement(tooltip);
     moveToElement(menuItem);
     clickElement(menuItem);
   }
@@ -48,6 +54,5 @@ public class MarketPage extends BasePage {
   }
 
   public void checkCatalogHeader() {
-
   }
 }

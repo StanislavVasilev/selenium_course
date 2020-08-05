@@ -50,6 +50,11 @@ public class SearchFormHelper extends BasePage {
 
   @FindBy(xpath = "//legend[text()='Производитель']/parent::fieldset/ul")
   private WebElement manufacturersList;
+
+  @FindBy(xpath = "//input[@type='checkbox'][@name='Производитель LG']//ancestor::li")
+  private WebElement lgType;
+
+
   /**
    * Заголовок раздела на странице
    */
@@ -122,26 +127,23 @@ public class SearchFormHelper extends BasePage {
     clickElement(searchButton);
   }
 
-
   /**
    * Выбор производиетеля
    *
    * @param manufacturerName принимает наименование производителя как входной параметр.
    */
-  public SearchFormHelper selectManufacturer(String manufacturerName) {
-    String base = "Производитель ";
+  public void selectManufacturer(String manufacturerName) {
     switch (manufacturerName) {
       case "LG":
-        manufacturersList.findElement(By.name(base + "LG")).click();
+        waitAndClickElement(manufacturersList.findElement(By.xpath("//input[@type='checkbox'][@name='Производитель LG']//ancestor::li")));
         break;
       case "Samsung":
-        manufacturersList.findElement(By.name(base + "Samsung")).click();
+        waitAndClickElement(manufacturersList.findElement(By.xpath("//input[@type='checkbox'][@name='Производитель Samsung']//ancestor::li")));
         break;
       case "Beats":
-        manufacturersList.findElement(By.name(base + "Beats")).click();
+        waitAndClickElement(manufacturersList.findElement(By.xpath("//input[@type='checkbox'][@name='Производитель Beats']//ancestor::li")));
         break;
     }
-    return this;
   }
 
 }
