@@ -31,7 +31,6 @@ public class TvSearchSteps {
     Assert.assertEquals(count, resultCount);
   }
 
-
   @Step("Выбрана первая модель из списка, выполнен поиск по ее наименованию и проверка, что в результатах поиска та модель, которую искали")
   public void getFirstModelAndSearch(int resultNumber) {
     String tvNameBefore = searchForm.getResultStringName(resultNumber);

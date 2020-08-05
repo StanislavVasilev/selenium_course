@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,14 +47,24 @@ public class SearchFormHelper extends BasePage {
 
   /**
    * Блок с элементами фильтра Производитель.
+   * Решено не использовать.
    */
 
   @FindBy(xpath = "//legend[text()='Производитель']/parent::fieldset/ul")
   private WebElement manufacturersList;
 
-  @FindBy(xpath = "//input[@type='checkbox'][@name='Производитель LG']//ancestor::li")
-  private WebElement lgType;
+  /**
+   * Чекбоксы LG и Samsung, а так же beats на странице наушников(не реализовано) в списке.
+   */
 
+  @FindBy(xpath = "//input[@type='checkbox'][@name='Производитель LG']/following-sibling::div")
+  private WebElement checkBoxLg;
+
+  @FindBy(xpath = "//input[@type='checkbox'][@name='Производитель Samsung']/following-sibling::div")
+  private WebElement getCheckBoxSamsung;
+
+  @FindBy(xpath = "//input[@type='checkbox'][@name='Производитель Beats']/following-sibling::div")
+  private WebElement getCheckBoxBeats;
 
   /**
    * Заголовок раздела на странице
@@ -62,7 +73,11 @@ public class SearchFormHelper extends BasePage {
   @FindBy(xpath = "//h1")
   private WebElement tvPageTitle;
 
+  /**
+   * Метод получает строку заголовка страницы
+   */
   public String getPageTitle() {
+    waitForVisibleElement(tvPageTitle);
     return tvPageTitle.getText();
   }
 
@@ -83,9 +98,7 @@ public class SearchFormHelper extends BasePage {
   public int getSearchResultCount() {
     waitForVisibleElement(result);
     String searchCount = result.getText();
-    Pattern pattern = Pattern.compile("/d");
-    Matcher matcher = pattern.matcher(searchCount);
-    return Integer.parseInt(matcher.group());
+    return Integer.parseInt(searchCount.replaceAll("\\D+", ""));
   }
 
   /**
@@ -127,6 +140,7 @@ public class SearchFormHelper extends BasePage {
     clickElement(searchButton);
   }
 
+
   /**
    * Выбор производиетеля
    *
@@ -135,13 +149,13 @@ public class SearchFormHelper extends BasePage {
   public void selectManufacturer(String manufacturerName) {
     switch (manufacturerName) {
       case "LG":
-        waitAndClickElement(manufacturersList.findElement(By.xpath("//input[@type='checkbox'][@name='Производитель LG']//ancestor::li")));
+        waitAndClickElement(checkBoxLg);
         break;
       case "Samsung":
-        waitAndClickElement(manufacturersList.findElement(By.xpath("//input[@type='checkbox'][@name='Производитель Samsung']//ancestor::li")));
+        waitAndClickElement(getCheckBoxSamsung);
         break;
       case "Beats":
-        waitAndClickElement(manufacturersList.findElement(By.xpath("//input[@type='checkbox'][@name='Производитель Beats']//ancestor::li")));
+        waitAndClickElement(getCheckBoxBeats);
         break;
     }
   }
