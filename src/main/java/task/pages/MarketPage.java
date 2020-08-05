@@ -7,8 +7,12 @@ public class MarketPage extends BasePage {
   /**
    * элемент Каталог товаров
    */
-  @FindBy(xpath = "//button[@role='tab']")
+//  @FindBy(xpath = "//button[@role='tab']")
+  @FindBy(xpath = "//span[text()='Каталог товаров']")
   private WebElement menuItem;
+
+  @FindBy(xpath = "//span[text()='Да, спасибо']/parent::button")
+  private WebElement closePopupButton;
 
   @FindBy(xpath = "//span[text()='Электроника']//ancestor::button")
   private WebElement electronicsButton;
@@ -24,7 +28,9 @@ public class MarketPage extends BasePage {
   }
 
   public void openMenu() {
-    waitForClickableElement(menuItem);
+    clickElement(closePopupButton);
+    waitForVisibleElement(menuItem);
+    moveToElement(menuItem);
     clickElement(menuItem);
   }
 
