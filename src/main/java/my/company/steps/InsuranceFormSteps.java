@@ -6,8 +6,8 @@ import my.company.pages.InsuranceFormPage;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 
-public class InsuranceFormSteps extends BaseSteps {
-  private final InsuranceFormPage insuranceFormPage = new InsuranceFormPage(driver);
+public class InsuranceFormSteps extends BaseSteps{
+  private final InsuranceFormPage insuranceFormPage = new InsuranceFormPage();
 
   @Step("Нажатие на кнопку Оформить и переход на 2ю вкладку Оформление")
   public void makeRegisterPerson() {

@@ -1,8 +1,10 @@
 package my.company.pages;
 
-import org.openqa.selenium.WebDriver;
+import my.company.managers.DriverManager;
+import my.company.managers.PagesManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * Родительский класс.
@@ -11,12 +13,18 @@ import org.openqa.selenium.interactions.Actions;
 
 public class BasePage {
 
-  WebDriver driver;
+  protected PagesManager manager = PagesManager.getPagesManager();
+  protected Actions action = new Actions(DriverManager.getDriver());
+
+  public BasePage() {
+    PageFactory.initElements(DriverManager.getDriver(), this);
+  }
 
   /**
    * Заполнение поля
+   *
    * @param element веб элемент, передаваемый в качестве параметра
-   * @param value значение, которое заносится в поле
+   * @param value   значение, которое заносится в поле
    */
   protected void fillField(WebElement element, String value) {
     element.click();
@@ -25,7 +33,8 @@ public class BasePage {
 
   /**
    * Клик на элемент
-   * @param element  передается Веб элемент
+   *
+   * @param element передается Веб элемент
    */
   protected void clickOnElement(WebElement element) {
     element.click();
@@ -33,20 +42,20 @@ public class BasePage {
 
   /**
    * Наведение курсора на элемент меню
+   *
    * @param element передается Веб элемент
    */
   protected void moveToElement(WebElement element) {
-    Actions actions = new Actions(driver);
-    actions.moveToElement(element).build().perform();
+    action.moveToElement(element).build().perform();
   }
 
   /**
    * Наведение курсора на элемент и клик по нему
+   *
    * @param element Передается Веб элемент
    */
   protected void moveToElementAndClick(WebElement element) {
-    Actions actions = new Actions(driver);
-    actions.moveToElement(element).click().build().perform();
+    action.moveToElement(element).click().build().perform();
   }
 
 }

@@ -1,16 +1,13 @@
 package my.company.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Класс страницы формы с полями для оформления Страховаго полиса.
  */
 public class InsuranceFormPage extends BasePage {
+
 
   /**
    * Заголовок страницы формы.
@@ -73,16 +70,7 @@ public class InsuranceFormPage extends BasePage {
   public WebElement getTotalErrorBlock() {
     return totalErrorBlock;
   }
-  /**
-   * Конструктор принимающий на вход параметр
-   *
-   * @param driver пронаследованный драйвер от суперкласса
-   */
-  public InsuranceFormPage(WebDriver driver) {
-    PageFactory.initElements(driver, this);
-    new WebDriverWait(driver, 10, 1000).until(ExpectedConditions.visibilityOf(insuranceFormPageTitle));
-    this.driver = driver;
-  }
+
 
   /**
    * Метод клика на элемент внутри страницы.

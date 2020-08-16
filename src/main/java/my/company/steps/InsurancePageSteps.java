@@ -4,10 +4,10 @@ import io.qameta.allure.Step;
 import my.company.pages.InsuranceForTravelersPage;
 
 
-public class InsurancePageSteps extends BaseSteps {
+public class InsurancePageSteps extends BaseSteps{
 
-  @Step("Нажатие на кнопку Оформить")
+  @Step("Нажатие на кнопку Оформить онлайн")
   public void clickMakeInsuranceButton() {
-    new InsuranceForTravelersPage(driver).clickRegisterInsuranceButton();
+    new InsuranceForTravelersPage().clickRegisterInsuranceButton();
   }
 }

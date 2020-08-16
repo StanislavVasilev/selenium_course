@@ -4,9 +4,9 @@ import io.qameta.allure.Step;
 import my.company.pages.MainPage;
 
 
-public class MainSteps extends BaseSteps {
+public class MainSteps extends BaseSteps{
 
-  MainPage mainPage = new MainPage(driver);
+  MainPage mainPage = new MainPage();
 
   @Step("Выбран пункт меню {0}")
   public void stepSelectMenu(String menuItem) {
@@ -14,7 +14,7 @@ public class MainSteps extends BaseSteps {
   }
 
   @Step("Выбран пункт подменю {0}")
-  public void stepSelectSubMenuItem(String subMenuItem){
+  public void stepSelectSubMenuItem(String subMenuItem) {
     mainPage.openSubMenu(subMenuItem);
   }
 }
